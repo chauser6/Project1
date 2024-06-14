@@ -30,3 +30,9 @@ resources = {
     "ham": 18,  ## slice
     "cheese": 24,  ## ounces
 }
+class SandwichMachine:
+
+    def __init__(self, machine_resources):
+        """Receives resources as input.
+           Hint: bind input variable to self variable"""
+        self.machine_resources = machine_resources
