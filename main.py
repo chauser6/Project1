@@ -85,3 +85,30 @@ class SandwichMachine:
         print("Current resources:")
         for item, amount in self.machine_resources.items():
             print(f"{item}: {amount}")
+
+    def ham_sandwich_maker(self):
+        """Main function to run the ham sandwich maker program."""
+        while True:
+            choice = input("What would you like? (small/ medium/ large/ off/ report): ").lower()
+
+            if choice == "off":
+                print("Turning off the machine. Goodbye!")
+                break
+
+            elif choice == "report":
+                self.report_resources()
+
+            elif choice in ["small", "medium", "large"]:
+                sandwich_recipe = recipes[choice]
+                if not self.check_resources(sandwich_recipe["ingredients"]):
+                    continue
+
+                cost = sandwich_recipe["cost"]
+                print(f"The cost of a {choice} sandwich is ${cost:.2f}.")
+                total_inserted = self.process_coins()
+
+                if self.transaction_result(total_inserted, cost):
+                    self.make_sandwich(choice, sandwich_recipe["ingredients"])
+
+            else:
+                print("Invalid choice. Please select again.")
