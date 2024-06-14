@@ -86,6 +86,7 @@ class SandwichMachine:
         for item, amount in self.machine_resources.items():
             print(f"{item}: {amount}")
 
+
     def ham_sandwich_maker(self):
         """Main function to run the ham sandwich maker program."""
         while True:
@@ -112,3 +113,8 @@ class SandwichMachine:
 
             else:
                 print("Invalid choice. Please select again.")
+# Create an instance of SandwichMachine
+machine = SandwichMachine(resources)
+
+# Run the ham sandwich maker program
+machine.ham_sandwich_maker()
