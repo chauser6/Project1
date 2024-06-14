@@ -71,9 +71,17 @@ class SandwichMachine:
             print(f"Here is ${change:.2f} in change.")
         return True
 
+
     def make_sandwich(self, sandwich_size, order_ingredients):
         """Deduct the required ingredients from the resources.
            Hint: no output"""
         for item, amount in order_ingredients.items():
             self.machine_resources[item] -= amount
         print(f"{sandwich_size.capitalize()} sandwich is ready. Bon appetit!")
+
+
+    def report_resources(self):
+        """Print the current resources."""
+        print("Current resources:")
+        for item, amount in self.machine_resources.items():
+            print(f"{item}: {amount}")
